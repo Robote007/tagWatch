@@ -1,10 +1,22 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <div>
+    <NavBar />
+  </div>
   <router-view/>
 </template>
+
+
+<script>
+// @ is an alias to /src
+import NavBar from '@/components/NavBar.vue'
+
+export default {
+  name: 'App',
+  components: {
+    NavBar
+  }
+}
+</script>
 
 <style>
 #app {
@@ -21,10 +33,14 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: grey;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: whitesmoke;
+}
+
+* {
+  margin: 0px !important;
 }
 </style>

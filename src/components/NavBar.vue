@@ -33,6 +33,8 @@ export default {
 
 <style scoped>
     .header {
+        width: 100vw !important;
+        position: fixed;
         border-bottom: 1px solid white;
         background-color: black;
         display: flex;

@@ -33,9 +33,10 @@ export default {
 
 <style scoped>
     .header {
+        z-index: 100;
         width: 100vw !important;
         position: fixed;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid #dd7979;
         background-color: black;
         display: flex;
         flex-direction: row;

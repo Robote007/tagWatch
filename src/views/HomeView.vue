@@ -9,8 +9,11 @@
         <img class="image-montre-coloré" src="../assets/images3.jpeg" alt="montre-rouge">
     </div> -->
     <div>
-      <img style="width: 100%" src="../assets/montre-principal.jpeg" alt="" />
-      <img style="width: 100%" src="../assets/color-montre.jpeg" alt="" />
+        <div class="black-watch">
+            <img class="main-watch-img" src="../assets/montre-principal.jpeg" alt="montrer noir sur charbon" />
+        </div>
+        <button @click="say('hello')">VENEZ DÉCOUVRIR</button>
+        <img style="width: 100%" src="../assets/color-montre.jpeg" alt="lot de montre coloré" />
     </div>
   </div>
 </template>
@@ -33,6 +36,10 @@ export default {
     background-size: cover;
     background-position: center;
   }
+  .main-watch-img{
+      width: 100%;
+      z-index: 1;
+  }
   .watch-color{
     margin-top: 53% !important;
     height: 80vh;
@@ -45,6 +52,9 @@ export default {
     font-size: 2.8em;
     padding-top: 1%;
     font-family: Playfair;
+  }
+  .black-watch {
+      background-color: black;
   }
   .bloc-image {
       display: flex;

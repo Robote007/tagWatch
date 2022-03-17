@@ -5,14 +5,14 @@
                 <img alt="Vue logo" src="../assets/logo.png">
             </div>
             <nav>
-                <router-link selected to="/">Home</router-link>   <span> | </span>
-                <router-link to="/montres">Montres</router-link>   <span> | </span> 
-                <router-link to="/univers">Univers</router-link>
+                <router-link class="nav-link" selected to="/">Home</router-link>   <span> | </span>
+                <router-link class="nav-link" to="/montres">Montres</router-link>   <span> | </span> 
+                <router-link class="nav-link" to="/univers">Univers</router-link>
             </nav>
         </div>
         <div class="bloc-right">
-            <i class="fas fa-user fa-xl"></i>
             <i class="fas fa-search fa-xl"></i>
+            <i class="fas fa-user fa-xl"></i>
             <i class="fas fa-shopping-cart fa-xl"></i>
         </div>
     </div>
@@ -44,6 +44,9 @@ export default {
         justify-content: space-between;
         align-items: baseline;
         align-content: stretch;
+    }
+    .nav-link{
+        font-size: 20px;
     }
     .bloc-left {
         display: flex;

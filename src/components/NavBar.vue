@@ -2,7 +2,7 @@
     <div class="header">
         <div class="bloc-left">
             <div>
-                <img alt="Vue logo" src="../assets/logo.png">
+                  <router-link class="nav-link" selected to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link>
             </div>
             <nav>
                 <router-link class="nav-link" selected to="/">Home</router-link>   <span> | </span>
@@ -47,6 +47,7 @@ export default {
     }
     .nav-link{
         font-size: 20px;
+        font-family: 'ProximaNova', sans-serif;
     }
     .bloc-left {
         display: flex;

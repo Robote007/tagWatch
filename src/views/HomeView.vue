@@ -20,12 +20,6 @@
         <img style="width: 100%" src="../assets/color-montre.jpeg" alt="lot de montre coloré" />
     </div>
     
-    <!-- <div class="bloc-image">
-        <img class="image-montre-coloré" src="../assets/images1.jpeg" alt="montrre blanche">
-        <img class="image-montre-coloré" src="../assets/images2.jpeg" alt="montre-jaune">
-        <img class="image-montre-coloré" src="../assets/images3.jpeg" alt="montre-rouge">
-    </div> -->
-    
     <div>
         <p classe="expertise">NOTRE EXPERTISE</p>
         <img style="width: 100%" src="../assets/exper.png" alt="un horloger en action">

@@ -6,12 +6,23 @@
             </div>
             <nav>
                 <router-link class="nav-link" selected to="/">Home</router-link>   <span> | </span>
-                <router-link class="nav-link" to="/montres">Montres</router-link>   <span> | </span> 
+                <router-link class="nav-link" to="/montres">Montres</router-link>   <span> | </span>
                 <router-link class="nav-link" to="/univers">Univers</router-link>
             </nav>
         </div>
+ 
+        <input 
+            class="search-input"
+            v-if="openSearch" 
+            type="search" 
+            v-model="searchValue"
+            id="search" 
+            @input="search"
+            placeholder="Rechercher ..." 
+            autocomplete="off"
+        >
         <div class="bloc-right">
-            <i class="fas fa-search fa-xl"></i>
+            <i class="fas fa-search fa-xl" @click="openSearchInput()"></i>
             <i class="fas fa-user fa-xl"></i>
             <router-link class="" to="/panier"><i class="fas fa-shopping-cart fa-xl"></i></router-link>
         </div>
@@ -19,15 +30,32 @@
 </template>
 
 <script>
+import Vuex from 'vuex'
+
 export default {
-  name: 'NavBar',
-  data(){
-      return {
-          title: ""
-      }
-  },
-  props: {
-  }
+    name: 'NavBar',
+    data(){
+        return {
+            title: "",
+            openSearch: false,
+            searchValue : ""
+        }
+    },
+    props: {
+    },
+    computed: {
+        ...Vuex.mapGetters([
+            'searchKey'
+        ]),
+        search(){
+            this.$store.commit('updateSearchKey', this.searchValue)
+        }
+    },
+    methods: {
+        openSearchInput(){
+            this.openSearch = !this.openSearch;
+        }
+    }
 }
 </script>
 
@@ -44,6 +72,10 @@ export default {
         justify-content: space-between;
         align-items: baseline;
         align-content: stretch;
+    }
+    .search-input{
+        padding: 10px;
+        margin-right: -40% !important;
     }
     .nav-link{
         font-size: 20px;

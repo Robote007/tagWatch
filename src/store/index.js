@@ -22,7 +22,8 @@ export default createStore({
     ],
     searchKey : "",
     watchsCart : [],
-    totalAmount : 0
+    totalAmount : 0,
+    cartStatus : false
   },
   getters: {
     watchs(state){
@@ -36,6 +37,9 @@ export default createStore({
     },
     totalAmount(state){
         return state.totalAmount;
+    },
+    cartStatus(state){
+        return state.cartStatus
     }
   },
   mutations: {
@@ -51,7 +55,26 @@ export default createStore({
         }
         value.quantity = 1;
         state.watchsCart.push(value);
-    }
+    },
+    removeItemFromCart(state, id){
+        for(var i = 0; i < state.watchsCart.length; i++){
+            if(state.watchsCart[i].id === id){
+                return state.watchsCart.splice(i, 1);
+            }
+        }
+    },
+    addAmountInTotal(state, value){
+        state.totalAmount = state.totalAmount + value; 
+    },
+    removeAmountFromTotal(state, item){
+        if(item.quantity > 1){
+            state.totalAmount = state.totalAmount - (item.price * item.quantity); 
+        }
+        else {
+            state.totalAmount = state.totalAmount - item.price; 
+        }
+    },
+
   },
   actions: {
   },

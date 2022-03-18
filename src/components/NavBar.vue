@@ -23,8 +23,8 @@
         >
         <div class="bloc-right">
             <i class="fas fa-search fa-xl" @click="openSearchInput()"></i>
+            <i class="fas fa-shopping-cart fa-xl"></i>
             <i class="fas fa-user fa-xl"></i>
-            <router-link class="" to="/panier"><i class="fas fa-shopping-cart fa-xl"></i></router-link>
         </div>
     </div>
 </template>
@@ -84,7 +84,6 @@ export default {
     .bloc-left {
         display: flex;
     }
-    
     .bloc-right{
         display: flex;
     }
@@ -94,16 +93,13 @@ export default {
         display: flex;
         justify-content: space-around;
     }
-
     li {
         padding-top: 45%;
     }
-  
     i {
         color: white;
         padding-right: 35px;
     }
-
     img {
         /* margin-top: 50%; */
         transform: translateY(50%);     

@@ -15,10 +15,21 @@
                         </div>
                         <div style="">
                             <p class="modele">{{ item.modele }}</p>
-                            <p class="">Quantité {{ item.quantity }}</p>
+                            <div style="display: flex; justify-content: space-around">
+                                <p class="quantity">Quantité {{ item.quantity }}</p>
+                                <div class="addLessButton">
+                                    <i @click="cartPlusOne(item)" class="fa-solid fa-circle-plus"></i>
+                                    <i @click="cartLessOne(item)"  style="margin-left: 15% !important" class="fa-solid fa-circle-minus"></i>
+                                </div>
+                            </div>
                         </div>
                         <div class="price">
-                            {{ item.price }} €
+                            <div>
+                                {{ item.price }} €
+                            </div>
+                        </div>
+                        <div>
+                            <i @click="deleteItem(item)" style="font-size: 20px; color: red" class="fa-solid fa-ban"></i>
                         </div>
                     </div>
                     <hr>
@@ -57,6 +68,23 @@ export default {
         getImgUrl(pic) {
             return require('../assets/'+pic)
         },
+        cartPlusOne(item){
+            item.quantity = item.quantity + 1; 
+            this.$store.commit('addAmountInTotal', item.price);
+        },
+        cartLessOne(item){
+            if(item.quantity > 0){
+                item.quantity = item.quantity - 1; 
+                this.$store.commit('removeAmountFromTotal', item);
+            }
+            else {
+                this.$store.commit('removeItemFromCart', item.id);
+            }
+        },
+        deleteItem(item){
+            this.$store.commit('removeItemFromCart', item.id);
+            this.$store.commit('removeAmountFromTotal', item);
+        }
     },
 }
 </script>
@@ -89,6 +117,9 @@ export default {
     .order-item-bloc {
         padding: 20px;
     }
+    .quantity{
+        padding-left: 5% !important;
+    }
     .watch{
         height: 80px;
         width: 80px;
@@ -102,12 +133,18 @@ export default {
     }
     .price{
         font-weight: bold;
-         margin-top: 20% !important;
+        margin-top: 15% !important;
         transform: translateY(-50%) !important;
 
     }
     .total{
         padding: 10px;
         font-size: 1.5em;
+    }
+    .addLessButton{
+        display: flex; 
+        padding-left: 10%;
+        justify-content: space-between;
+
     }
 </style>

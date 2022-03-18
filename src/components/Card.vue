@@ -13,7 +13,7 @@
         <br>
         <div class="price">
             <p> {{ watch.price }} €</p>
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-shopping-cart" @click="addToCart(watch)"></i>
         </div>
     </div>
 </template>
@@ -32,6 +32,9 @@ export default {
     methods: {
         getImgUrl(pic) {
             return require('../assets/'+pic)
+        },
+        addToCart(watch){
+            this.$store.commit('addWatchInCart', watch)
         }
     }
 }
@@ -42,10 +45,10 @@ export default {
     .card-item{
         margin: 10px auto !important;
         border: 1px solid grey;
-        height: 300px;
+        max-height: 300px;
         min-width: 20%;
         padding: 10px;
-        border-radius: 3px;
+        border-radius: 8px;
         background-color: black;
     }
     .title{
@@ -53,7 +56,7 @@ export default {
         padding-top: 5px;
     }
     .watch{
-        height: 170px;
+        height: 150px;
         width: 200px;
         margin: 10px auto !important;
         border-radius: 3px;

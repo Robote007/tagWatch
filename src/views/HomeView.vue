@@ -16,7 +16,7 @@
             <div class="watch-woman" @click="goWomanModels()">
             </div>
         </div>
-        <h3 class="fade-in-text">NOS MODÉLES COLORÉS</h3>
+        <h3 class="fade-in-text">NOS MODÉLES SPORTIFS</h3>
         <img style="width: 100%" src="../assets/color-montre.jpeg" alt="lot de montre coloré" />
     </div>
     

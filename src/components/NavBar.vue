@@ -48,7 +48,7 @@ export default {
             'searchKey'
         ]),
         search(){
-            this.$store.commit('updateSearchKey', this.searchValue)
+            this.$store.commit('updateSearchKey', this.searchValue);
         }
     },
     methods: {

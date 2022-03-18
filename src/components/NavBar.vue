@@ -13,7 +13,7 @@
         <div class="bloc-right">
             <i class="fas fa-search fa-xl"></i>
             <i class="fas fa-user fa-xl"></i>
-            <i class="fas fa-shopping-cart fa-xl"></i>
+            <router-link class="" to="/panier"><i class="fas fa-shopping-cart fa-xl"></i></router-link>
         </div>
     </div>
 </template>

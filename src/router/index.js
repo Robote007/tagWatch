@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Page404 from '../views/Page404.vue'
+
 
 const routes = [
   {
@@ -16,6 +18,21 @@ const routes = [
     path: '/univers',
     name: 'univers',
     component: () => import(/* webpackChunkName: "about" */ '../views/Univers.vue')
+  },
+  {
+    path: '/man',
+    name: 'man',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ManWatch.vue')
+  },
+  {
+    path: '/woman',
+    name: 'woman',
+    component: () => import(/* webpackChunkName: "about" */ '../views/WomanWatch.vue')
+  },
+  {
+    path: '/*',
+    name: 'page404',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Page404.vue')
   }
 ]
 

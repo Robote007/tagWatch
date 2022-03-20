@@ -2,9 +2,9 @@
     <div class="header">
         <div class="bloc-left">
             <div>
-                  <router-link class="nav-link" selected to="/"><img alt="Vue logo" src="../assets/logo.png"></router-link>
+                  <router-link class="nav-link" selected to="/"><img class="logo" alt="Vue logo" src="../assets/logo.png"></router-link>
             </div>
-            <nav>
+            <nav class="navigation">
                 <router-link class="nav-link" selected to="/">Home</router-link>   <span> | </span>
                 <router-link class="nav-link" to="/montres">Montres</router-link>   <span> | </span>
                 <router-link class="nav-link" to="/univers">Univers</router-link>
@@ -104,5 +104,28 @@ export default {
         /* margin-top: 50%; */
         transform: translateY(50%);     
         height: 50px;
+    }
+
+    @media (max-width: 760px) {
+        .header {
+            padding-bottom: 4% !important;
+            margin-top: -1% !important;
+        }
+        .fa-xl {
+            font-size: 1.2em;
+        }
+        .logo{
+            height: 38px !important;
+        }
+        .navigation {
+            display: none;
+        }
+        .nav-link{
+            height: 20px;
+            width: 20px;
+        }
+        i{
+            padding-right: 20px;
+        }
     }
 </style>

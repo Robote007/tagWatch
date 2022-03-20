@@ -21,12 +21,12 @@
     </div>
     
     <div>
-        <p classe="expertise">NOTRE EXPERTISE</p>
+        <p class="expertise">NOTRE EXPERTISE</p>
         <img style="width: 100%" src="../assets/exper.png" alt="un horloger en action">
     </div>
 
     <footer style="padding-top: 10%; padding-bottom: 1%">
-        <p style="text-align: center; font-size: 1.5em">© TAG Heuer une division de LVMH Swiss Manufactures SA - 2022</p>
+        <p class="footer-text" style="text-align: center; font-size: 1.5em">© TAG Heuer une division de LVMH Swiss Manufactures SA - 2022</p>
     </footer>
   </div>
 </template>
@@ -138,7 +138,7 @@ export default {
 
     .myButton {
         font-family: 'proximaNova', sans-serif;
-        margin-top: 3% !important;
+        margin-top: 3.5% !important;
         margin-left: auto !important; 
         z-index: 5;
         box-shadow: 3px 3px 0px 0px black;
@@ -183,18 +183,65 @@ export default {
         animation: animate 10s linear ;
     }
 
-@keyframes animate {
-    0% {
-        left: 20%;
+    @keyframes animate {
+        0% {
+            left: 20%;
+        }
+        50% {
+            left: 80%;
+            height: 0% !important;
+        }
+        80% {
+            height: 0% !important;
+            content: none;
+        }
     }
-     50% {
-        left: 80%;
-         height: 0% !important;
+
+    @media (max-width: 760px) {
+        h1{
+            font-size: 1.8em;
+            margin-left: 4% !important;
+        }
+        h2{
+            font-size: 1em;
+            margin-top: -15% !important;
+            margin-left: 55% !important;
+        }
+        .watch-woman, .watch-man {
+            width: 100%;
+            background-size: contain;
+            height: 255px;
+        }
+        .myButton{
+            margin-top: 12% !important;
+            padding: 3%;
+        }
+        .main-watch-img{
+            margin-top: 15% !important;
+        }
+        .expertise{
+            font-size: 1.5em !important;
+        }
+        .fade-in-text {
+            font-size: 2em !important;
+        }
+        @keyframes animate {
+            0% {
+                left: 10%;
+                width: 80%;
+            }
+            50% {
+                left: 80%;
+                height: 0% !important;
+            }
+            80% {
+                height: 0% !important;
+                content: none;
+            }
+        }
+        .footer-text{
+            font-size: 1em !important;
+        }
     }
-     80% {
-        height: 0% !important;
-        content: none;
-    }
-}
         
 </style>

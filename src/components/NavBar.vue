@@ -4,10 +4,20 @@
             <div>
                   <router-link class="nav-link" selected to="/"><img class="logo" alt="Vue logo" src="../assets/logo.png"></router-link>
             </div>
+           
             <nav class="navigation">
                 <router-link class="nav-link" selected to="/">Home</router-link>   <span> | </span>
                 <router-link class="nav-link" to="/montres">Montres</router-link>   <span> | </span>
                 <router-link class="nav-link" to="/univers">Univers</router-link>
+            </nav>
+            <div class="open-menu"><i class="fa fa-bars" @click="openModal"></i></div>
+            <nav class="responsive-navigation">
+                <ul class="main-menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Montres</a></li>
+                    <li><a href="#">Univers</a></li>
+                    <div class="closeMenu"><i class="fa fa-times"></i></div>
+                </ul>
             </nav>
         </div>
  
@@ -54,6 +64,9 @@ export default {
     methods: {
         openSearchInput(){
             this.openSearch = !this.openSearch;
+        },
+        openModal(){
+            console.log('test');
         }
     }
 }
@@ -72,6 +85,12 @@ export default {
         justify-content: space-between;
         align-items: baseline;
         align-content: stretch;
+    }
+    .open-menu{
+        display: none;
+    }
+    .responsive-navigation{
+        display: none;
     }
     .search-input{
         padding: 10px;
@@ -110,6 +129,37 @@ export default {
         .header {
             padding-bottom: 4% !important;
             margin-top: -1% !important;
+        }
+        .open-menu{
+            display: block;
+        }
+        /* .responsive-navigation{
+            display: flex;
+        } */
+        .main-menu{
+            display: block;
+        }
+        .open-menu{
+            margin-top: -7% !important;
+        }
+        .closeMenu {
+            position: fixed;
+            margin-top: -35% !important;
+            margin-left: 45% !important;
+        }
+        i.fa.fa-bars {
+            font-size: 24px;
+            margin-top: 58% !important;
+        }
+        i.fa.fa-times {
+            font-size: 24px;
+        }
+        ul.main-menu {
+            margin-top: 40% !important;
+        }
+        .search-input{
+            margin-right: 0% !important;
+            height: 20px !important;
         }
         .fa-xl {
             font-size: 1.2em;

@@ -30,7 +30,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/WomanWatch.vue')
   },
   {
-    path: '/*',
+    path: '/:catchAll(.*)',
     name: 'page404',
     component: () => import(/* webpackChunkName: "about" */ '../views/Page404.vue')
   }

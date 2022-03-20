@@ -210,7 +210,7 @@ export default {
         .watch-woman, .watch-man {
             width: 100%;
             background-size: contain;
-            height: 255px;
+            height: 270px;
         }
         .myButton{
             margin-top: 12% !important;

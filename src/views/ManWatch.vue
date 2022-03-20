@@ -23,4 +23,11 @@ export default {
     h1{
         padding-top: 10%;
     }
+    @media (max-width: 760px) {
+        h1{
+            padding-top: 15%;
+            font-size: 1.3em;
+        }
+    }
+    
 </style>

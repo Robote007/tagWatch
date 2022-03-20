@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1 style="padding-top: 8%; padding-bottom: 1%">Notre collection de montres</h1>
+    <h1>Notre collection de montres</h1>
     <div class="main-bloc">
         <div class="card-container" >
             <Card :montres="filteredWatchs"/>
@@ -13,7 +13,7 @@
                         <div>
                             <img class="watch" v-bind:src="getImgUrl(item.img)" alt="">
                         </div>
-                        <div style="">
+                        <div>
                             <p class="modele">{{ item.modele }}</p>
                             <div style="display: flex; justify-content: space-around">
                                 <p class="quantity">Quantité {{ item.quantity }}</p>
@@ -90,6 +90,10 @@ export default {
 </script>
 
 <style scoped>
+    h1{
+        padding-top: 8%; 
+        padding-bottom: 1%;
+    }
     .main-bloc {
         display: flex !important;
         flex-direction: row !important;
@@ -147,4 +151,10 @@ export default {
         justify-content: space-between;
 
     }
+
+     @media (max-width: 680px) {
+       h1 {
+           padding-top: 15% !important;
+       }
+     }
 </style>

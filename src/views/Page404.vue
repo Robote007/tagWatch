@@ -1,5 +1,5 @@
 <template>
-    <h1>Page 404</h1>
+    <h1>Page 404 not found </h1>
 </template>
 
 <script>
@@ -11,6 +11,8 @@ export default {
 
 <style scoped>
     h1{
-        padding-top: 10%;
+        padding-top: 50%;
+        text-align: center;
+        transform: translateY(-50%);
     }
 </style>

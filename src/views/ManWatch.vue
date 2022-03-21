@@ -9,23 +9,19 @@ export default {
         return {
         }
     },
-    props: {
-    },
-    computed: {
-    },
-    methods: {
-    }
-
 }
 </script>
 
 <style scoped>
     h1{
-        padding-top: 10%;
+        padding-top: 50%;
+        text-align: center;
+        transform: translateY(-50%);
     }
+    /* Media queries */
     @media (max-width: 760px) {
         h1{
-            padding-top: 15%;
+            padding-top: 50%;
             font-size: 1.3em;
         }
     }

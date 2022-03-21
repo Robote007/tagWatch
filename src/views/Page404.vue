@@ -5,7 +5,6 @@
 <script>
 export default {
     name: 'Page404',
-
 }
 </script>
 
@@ -14,5 +13,6 @@ export default {
         padding-top: 50%;
         text-align: center;
         transform: translateY(-50%);
+        font-size: 1.3em;
     }
 </style>

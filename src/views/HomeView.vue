@@ -135,7 +135,6 @@ export default {
     .image-montre-coloré {
         padding: 10px;
     }
-
     .myButton {
         font-family: 'proximaNova', sans-serif;
         margin-top: 3.5% !important;
@@ -163,7 +162,6 @@ export default {
         position:relative;
         top:1px;
     }
-
     h3{
         font-size: 3em;
         background-color: black;
@@ -172,7 +170,6 @@ export default {
         overflow: hidden;
         font-family: 'ProximaNova', sans-serif;
     }
-
     h3:before {
         content: '';
         position: absolute;
@@ -225,22 +222,11 @@ export default {
         .fade-in-text {
             font-size: 2em !important;
         }
-        @keyframes animate {
-            0% {
-                left: 10%;
-                width: 80%;
-            }
-            50% {
-                left: 80%;
-                height: 0% !important;
-            }
-            80% {
-                height: 0% !important;
-                content: none;
-            }
-        }
         .footer-text{
             font-size: 1em !important;
+        }
+        h3:before {
+            display: none;
         }
     }
         

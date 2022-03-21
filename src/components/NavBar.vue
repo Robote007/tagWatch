@@ -11,12 +11,12 @@
                 <router-link class="nav-link" to="/univers">Univers</router-link>
             </nav>
             <div class="open-menu"><i class="fa fa-bars" @click="openModal"></i></div>
-            <nav class="responsive-navigation">
+            <nav class="responsive-navigation" v-if="openMenu">
                 <ul class="main-menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Montres</a></li>
-                    <li><a href="#">Univers</a></li>
-                    <div class="closeMenu"><i class="fa fa-times"></i></div>
+                    <li><router-link class="nav-link" selected to="/">Home</router-link></li>
+                    <li><router-link class="nav-link" selected to="/Montres">Montres</router-link></li>
+                    <li><router-link class="nav-link" selected to="/Univers">Univers</router-link></li>
+                    <div class="closeMenu" @click="closeModal"><i class="fa fa-times"></i></div>
                 </ul>
             </nav>
         </div>
@@ -46,9 +46,10 @@ export default {
     name: 'NavBar',
     data(){
         return {
-            title: "",
+            title : "",
             openSearch: false,
-            searchValue : ""
+            searchValue : "",
+            openMenu : false
         }
     },
     props: {
@@ -66,7 +67,11 @@ export default {
             this.openSearch = !this.openSearch;
         },
         openModal(){
-            console.log('test');
+            this.openMenu = !this.openMenu;
+            this.openSearch = false;
+        },
+        closeModal(){
+            this.openMenu = false;
         }
     }
 }
@@ -120,11 +125,11 @@ export default {
         padding-right: 35px;
     }
     img {
-        /* margin-top: 50%; */
         transform: translateY(50%);     
         height: 50px;
     }
 
+    /* Media queries */
     @media (max-width: 760px) {
         .header {
             padding-bottom: 4% !important;
@@ -133,14 +138,18 @@ export default {
         .open-menu{
             display: block;
         }
-        /* .responsive-navigation{
+        .responsive-navigation{
             display: flex;
-        } */
+            padding-top: 18% !important;
+            margin-left: 13% !important;
+        }
         .main-menu{
             display: block;
         }
         .open-menu{
-            margin-top: -7% !important;
+            margin-top: -2% !important;
+            position: fixed;
+            margin-left: 20% !important;
         }
         .closeMenu {
             position: fixed;
@@ -149,7 +158,7 @@ export default {
         }
         i.fa.fa-bars {
             font-size: 24px;
-            margin-top: 58% !important;
+            margin-top: 60% !important;
         }
         i.fa.fa-times {
             font-size: 24px;
@@ -158,8 +167,9 @@ export default {
             margin-top: 40% !important;
         }
         .search-input{
-            margin-right: 0% !important;
+            margin-right: -10% !important;
             height: 20px !important;
+            width: 120px;
         }
         .fa-xl {
             font-size: 1.2em;

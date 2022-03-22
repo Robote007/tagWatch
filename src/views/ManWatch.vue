@@ -18,6 +18,7 @@ export default {
         text-align: center;
         transform: translateY(-50%);
     }
+    
     /* Media queries */
     @media (max-width: 760px) {
         h1{

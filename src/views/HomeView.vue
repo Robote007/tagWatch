@@ -1,34 +1,34 @@
 <template>
-  <div class="home">
-    <div>
-        <div class="black-watch-block">
-            <h1 style="">Tag Heuer</h1>
-            <img class="main-watch-img" src="../assets/montre-principal.jpeg" alt="montrer noir sur charbon" />
-            <h2 style="position: absolute; color: white; margin-left: 70% ">SWISS avant garde since 1860</h2>
+    <div class="home">
+        <div>
+            <div class="black-watch-block">
+                <h1 style="">Tag Heuer</h1>
+                <img class="main-watch-img" src="../assets/montre-principal.jpeg" alt="montrer noir sur charbon" />
+                <h2>SWISS avant garde since 1860</h2>
+            </div>
+
+            <div class="decouverte-btn">
+                <button class="myButton" variant="outline-primary" @click="goToUnivers()">VENEZ DÉCOUVRIR</button>
+            </div>
+            <div class="watch-block">
+                <div class="watch-man" @click="goManModels()">
+                </div>
+                <div class="watch-woman" @click="goWomanModels()">
+                </div>
+            </div>
+            <h3 class="fade-in-text">NOS MODÉLES SPORTIFS</h3>
+            <img style="width: 100%" src="../assets/color-montre.jpeg" alt="lot de montre coloré" />
+        </div>
+        
+        <div>
+            <p class="expertise">NOTRE EXPERTISE</p>
+            <img style="width: 100%" src="../assets/exper.png" alt="un horloger en action">
         </div>
 
-        <div style="height: 150px;">
-            <button class="myButton" variant="outline-primary" @click="goToUnivers()">VENEZ DÉCOUVRIR</button>
-        </div>
-        <div class="watch-block">
-            <div class="watch-man" @click="goManModels()">
-            </div>
-            <div class="watch-woman" @click="goWomanModels()">
-            </div>
-        </div>
-        <h3 class="fade-in-text">NOS MODÉLES SPORTIFS</h3>
-        <img style="width: 100%" src="../assets/color-montre.jpeg" alt="lot de montre coloré" />
+        <footer>
+            <p class="footer-text">© TAG Heuer une division de LVMH Swiss Manufactures SA - 2022</p>
+        </footer>
     </div>
-    
-    <div>
-        <p class="expertise">NOTRE EXPERTISE</p>
-        <img style="width: 100%" src="../assets/exper.png" alt="un horloger en action">
-    </div>
-
-    <footer style="padding-top: 10%; padding-bottom: 1%">
-        <p class="footer-text" style="text-align: center; font-size: 1.5em">© TAG Heuer une division de LVMH Swiss Manufactures SA - 2022</p>
-    </footer>
-  </div>
 </template>
 
 <script>
@@ -66,6 +66,12 @@ export default {
     h2 {
         margin-top: -6% !important;
         margin-left: 75% !important;
+        position: absolute; 
+        color: white; 
+        margin-left: 70%;
+    }
+    .decouverte-btn{
+        height: 150px;
     }
     p{
         text-align: center;
@@ -74,11 +80,11 @@ export default {
         margin: 60px auto !important;
     }
     .home{
-            height: 100vh;
-            object-fit: cover;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+        height: 100vh;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
     .main-watch-img{
         width: 100%;
@@ -105,7 +111,6 @@ export default {
         object-fit: cover;
         background-size: cover;
         background-position: center;
-
     }
     .watch-woman {
         width: 50%;
@@ -115,12 +120,10 @@ export default {
         object-fit: cover;
         background-size: cover;
         background-position: center;
-
     }
     .watch-man:hover, .watch-woman:hover {
         opacity: 0.6;
     }
-    
     .black-watch-block {
         background-color: black;
         position: relative;
@@ -179,7 +182,16 @@ export default {
         background: linear-gradient(90deg, transparent 0%, #000 5%, #000 100%);
         animation: animate 10s linear ;
     }
+    footer{
+        padding-top: 10%; 
+        padding-bottom: 1%;
+    }
+    footer > p{
+        text-align: center; 
+        font-size: 1.5em
+    }
 
+    /* Animation texte */
     @keyframes animate {
         0% {
             left: 20%;
@@ -194,6 +206,7 @@ export default {
         }
     }
 
+    /* Media queries */
     @media (max-width: 760px) {
         h1{
             font-size: 1.8em;

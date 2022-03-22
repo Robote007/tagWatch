@@ -34,7 +34,7 @@
         <div class="bloc-right">
             <i class="fas fa-search fa-xl" @click="openSearchInput()"></i>
             <i class="fas fa-shopping-cart fa-xl"></i>
-            <i class="fas fa-user fa-xl"></i>
+            <i class="fas fa-user fa-xl" @click="triggerSnackBar()"></i>
         </div>
     </div>
 </template>
@@ -72,6 +72,9 @@ export default {
         },
         closeModal(){
             this.openMenu = false;
+        },
+        triggerSnackBar(){
+            this.$store.commit('displaySnackBAr', true);
         }
     }
 }
@@ -111,7 +114,6 @@ export default {
     .bloc-right{
         display: flex;
     }
-
     ul {
         list-style-type: none;
         display: flex;
@@ -127,6 +129,9 @@ export default {
     img {
         transform: translateY(50%);     
         height: 50px;
+    }
+    .fa-xl {
+        font-size: 1.2em;
     }
 
     /* Media queries */
@@ -172,7 +177,7 @@ export default {
             width: 120px;
         }
         .fa-xl {
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
         .logo{
             height: 38px !important;

@@ -19,12 +19,11 @@
 </template>
 
 <script>
- 
 export default {
-  name: 'Card',
-  data(){
-      return {
-      }
+    name: 'Card',
+    data(){
+        return {
+        }
     },
     props: {
         montres : []
@@ -41,7 +40,6 @@ export default {
 </script>
 
 <style scoped>
-   
     .card-item{
         margin: 10px auto !important;
         border: 1px solid grey;

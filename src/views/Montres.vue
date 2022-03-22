@@ -9,17 +9,17 @@
             <div class="panier">
                 <p class="title">Panier</p>
                 <div class="order-item-bloc" v-for="( item, id) in watchsCart" :key="id">
-                    <div style="display: flex; height: 100px">
+                    <div class="item-bloc">
                         <div>
                             <img class="watch" v-bind:src="getImgUrl(item.img)" alt="">
                         </div>
                         <div>
                             <p class="modele">{{ item.modele }}</p>
-                            <div style="display: flex; justify-content: space-around">
+                            <div class="bottom-panier">
                                 <p class="quantity">Quantité {{ item.quantity }}</p>
                                 <div class="addLessButton">
                                     <i @click="cartPlusOne(item)" class="fa-solid fa-circle-plus"></i>
-                                    <i @click="cartLessOne(item)"  style="margin-left: 15% !important" class="fa-solid fa-circle-minus"></i>
+                                    <i @click="cartLessOne(item)" class="fa-solid fa-circle-minus"></i>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div>
-                            <i @click="deleteItem(item)" style="font-size: 20px; color: red" class="fa-solid fa-ban"></i>
+                            <i @click="deleteCard(item)" class="fa-solid fa-ban"></i>
                         </div>
                     </div>
                     <hr>
@@ -81,9 +81,9 @@ export default {
                 this.$store.commit('removeItemFromCart', item.id);
             }
         },
-        deleteItem(item){
+        deleteCard(item){
             this.$store.commit('removeItemFromCart', item.id);
-            this.$store.commit('removeAmountFromTotal', item);
+            this.$store.commit('deleteCart', item);
         }
     },
 }
@@ -98,6 +98,10 @@ export default {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap;
+    }
+    .item-bloc{
+        display: flex; 
+        height: 100px;
     }
     .card-container{
         max-width: 70%;
@@ -139,7 +143,6 @@ export default {
         font-weight: bold;
         margin-top: 15% !important;
         transform: translateY(-50%) !important;
-
     }
     .total{
         padding: 10px;
@@ -149,12 +152,23 @@ export default {
         display: flex; 
         padding-left: 10%;
         justify-content: space-between;
-
+    }
+    .fa-ban{
+        font-size: 20px; 
+        color: red;
+    }
+    .fa-circle-minus{
+        margin-left: 15% !important;
+    }
+    .bottom-panier{
+        display: flex; 
+        justify-content: space-around;
     }
 
-     @media (max-width: 680px) {
+    /* Media queries */
+    @media (max-width: 680px) {
        h1 {
            padding-top: 15% !important;
        }
-     }
+    }
 </style>

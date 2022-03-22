@@ -23,8 +23,10 @@ export default createStore({
     searchKey : "",
     watchsCart : [],
     totalAmount : 0,
-    cartStatus : false
+    cartStatus : false,
+    showSnack : false
   },
+
   getters: {
     watchs(state){
         return state.montres;
@@ -40,44 +42,56 @@ export default createStore({
     },
     cartStatus(state){
         return state.cartStatus
+    },
+    showSnack(state){
+        return state.showSnack
     }
   },
-  mutations: {
-    updateSearchKey(state, value) {
-        state.searchKey = value;
-    },
-    addWatchInCart(state, value) {
-        state.totalAmount += value.price;
-        for(var i = 0; i < state.watchsCart.length; i++){
-            if(state.watchsCart[i].id === value.id){
-                return state.watchsCart[i].quantity++
-            }
-        }
-        value.quantity = 1;
-        state.watchsCart.push(value);
-    },
-    removeItemFromCart(state, id){
-        for(var i = 0; i < state.watchsCart.length; i++){
-            if(state.watchsCart[i].id === id){
-                return state.watchsCart.splice(i, 1);
-            }
-        }
-    },
-    addAmountInTotal(state, value){
-        state.totalAmount = state.totalAmount + value; 
-    },
-    removeAmountFromTotal(state, item){
-        if(item.quantity > 1){
-            state.totalAmount = state.totalAmount - (item.price * item.quantity); 
-        }
-        else {
-            state.totalAmount = state.totalAmount - item.price; 
-        }
-    },
 
-  },
-  actions: {
-  },
-  modules: {
-  }
+    mutations: {
+        updateSearchKey(state, value) {
+            state.searchKey = value;
+        },
+        addWatchInCart(state, value) {
+            state.totalAmount += value.price;
+            for(var i = 0; i < state.watchsCart.length; i++){
+                if(state.watchsCart[i].id === value.id){
+                    return state.watchsCart[i].quantity++
+                }
+            }
+            value.quantity = 1;
+            state.watchsCart.push(value);
+        },
+        removeItemFromCart(state, id){
+            for(var i = 0; i < state.watchsCart.length; i++){
+                if(state.watchsCart[i].id === id){
+                    return state.watchsCart.splice(i, 1);
+                }
+            }
+        },
+        addAmountInTotal(state, value){
+            state.totalAmount = state.totalAmount + value; 
+        },
+        removeAmountFromTotal(state, item){
+            state.totalAmount = state.totalAmount - item.price; 
+        },
+        deleteCart(state, item){
+            if(item.quantity > 1){
+                state.totalAmount = state.totalAmount - (item.price * item.quantity); 
+            }
+            else if (item.quantity == 1) {
+                state.totalAmount = state.totalAmount - item.price; 
+            }
+        },
+        displaySnackBAr(state, value){
+            state.showSnack = value;
+            setTimeout(()=>{
+                state.showSnack = false;
+            },2000);
+        },
+    },
+    actions: {
+    },
+    modules: {
+    }
 })
